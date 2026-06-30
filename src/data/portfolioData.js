@@ -4,16 +4,16 @@ export const personalInfo = {
   lastName: 'Bane',
   role: 'Frontend Developer',
   headline: 'Frontend Developer | React.js | JavaScript Expert',
-  email: 'pranav.bane@portfolio.dev',
-  phone: '+91 1234567890',
-  location: 'Mumbai, India',
-  bio: `Passionate frontend developer with 2.5+ years of experience. I specialize in building high-performance web applications using React.js, Next.js, and modern JavaScript frameworks.`,
-  resumeUrl: '#',
+  email: 'pranavbane777@gmail.com',
+  phone: '+91 9321664393',
+  location: 'Thane, Maharashtra',
+  bio: `Passionate frontend developer with 2.4+ years of experience. I specialize in building high-performance web applications using React.js, Node.js, and modern JavaScript frameworks.`,
+  resumeUrl: '/resume/Pranav_Bane_Frontend_dev.pdf',
   avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600',
 }
 
 export const stats = [
-  { label: 'Years Experience', value: 2.5, suffix: '+' },
+  { label: 'Years Experience', value: 2.4, suffix: '+' },
   { label: 'Projects Completed', value: 10, suffix: '+' },
   { label: 'Technologies', value: 25, suffix: '+' },
   { label: 'Happy Clients', value: 8, suffix: '+' },
@@ -24,7 +24,7 @@ export const skills = {
     { name: 'React.js', level: 60, icon: 'react' },
     { name: 'JavaScript', level: 95, icon: 'javascript' },
     { name: 'Bootstrap', level: 90, icon: 'bootstarp' },
-    { name: 'Tailwind CSS', level: 50, icon: 'tailwind' },
+    { name: 'Tailwind CSS', level: 60, icon: 'tailwind' },
     { name: 'Framer Motion', level: 50, icon: 'framer' },
   ],
   tools: [
@@ -39,17 +39,17 @@ export const skills = {
 export const experiences = [
   {
     id: 1,
-    role: 'Frontend Developer',
+    role: 'Jr. Software Developer',
     company: 'Scan InfoTech Private Limited',
     location: 'Lower Parel, Mumbai',
-    period: 'Nov-2023 - March-2026',
+    period: 'Oct-2023 - Feb-2026',
     description: 'frontend architecture and development for enterprise SaaS applications. Mentoring junior developers and implementing best practices for code quality and performance.',
     achievements: [
       'Architected and built a real-time dashboard serving 50K+ daily users',
       'Reduced page load time by 40% through code splitting and lazy loading',
       'Led migration from legacy system to modern React architecture',
     ],
-    technologies: ['React', ],
+    technologies: ['React', 'JavaScript','jQuery', 'Redux', 'Tailwind CSS', 'Metronics', 'Bootstrap','HTML', 'CSS', 'Node.js'],
   }
 ]
 
@@ -67,13 +67,13 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+    title: 'Dashboard Analytics Tool',
+    description: 'Built a responsive dashboard interface for data visualization and management.',
     image: 'https://images.pexels.com/photos/2305445/pexels-photo-2305445.jpeg?auto=compress&cs=tinysrgb&w=800',
     category: 'frontend',
-    liveUrl: '#',
-    githubUrl: '#',
-    technologies: ['React', 'Redux', 'Socket.io', 'Node.js', 'MongoDB'],
+    liveUrl: 'https://pranavbane.github.io/Dashbord/',
+    githubUrl: 'https://github.com/pranavbane/Dashbord',
+    technologies: ['React', 'Redux', 'JavaScript', 'Bootstrap', 'HTML', 'CSS'],
     featured: true,
   },
 ]
@@ -151,19 +151,19 @@ export const testimonials = [
 ]
 
 export const techStack = [
-  { name: 'React', icon: 'react' },
+  { name: 'React', icon: 'React' },
   { name: 'JavaScript', icon: 'javascript' },
   { name: 'Tailwind CSS', icon: 'tailwind' },
   { name: 'Bootstrap', icon: 'bootstrap' },
-  { name: 'Html', icon: 'html' },
-  { name: 'CSS', icon: 'css' },
-  { name: 'Node.js', icon: 'nodejs' },
+  { name: 'Html', icon: 'HTML' },
+  { name: 'CSS', icon: 'CSS' },
+  { name: 'Node.js', icon: 'Nodejs' },
   { name: 'Git', icon: 'git' },
   { name: 'Figma', icon: 'figma' },
 ]
 
 export const socialLinks = [
-  { name: 'GitHub', url: '#', icon: 'github' },
+  { name: 'GitHub', url: 'https://github.com/pranavbane', icon: 'github' },
   { name: 'LinkedIn', url: '#', icon: 'linkedin' },
   { name: 'Twitter', url: '#', icon: 'twitter' },
   { name: 'Dribbble', url: '#', icon: 'dribbble' },

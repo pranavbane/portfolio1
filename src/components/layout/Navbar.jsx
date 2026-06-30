@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { personalInfo } from '../../data/portfolioData'
+import logo from "./../../assets/logo.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -68,9 +69,8 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-          isScrolled ? 'glass-dark py-4' : 'py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? 'glass-dark py-4' : 'py-6'
+          }`}
         initial={{ y: -100 }}
         animate={{ y: isHidden ? -100 : 0 }}
         transition={{ duration: 0.3 }}
@@ -87,10 +87,17 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+              {/* <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                 <span className="text-background font-bold text-lg">P</span>
               </div>
-              <span className="text-lg font-semibold hidden sm:block">{personalInfo.firstName}</span>
+              <span className="text-lg font-semibold hidden sm:block">{personalInfo.firstName}</span> */}
+              <div className="w-20 h-20 rounded-xl overflow-hidden border border-orange-500">
+                <img
+                  src={logo}
+                  alt="Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </motion.a>
 
             <div className="hidden lg:flex items-center gap-1">
@@ -98,11 +105,10 @@ const Navbar = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors hoverable ${
-                    activeSection === item.href.slice(1)
-                      ? 'text-primary'
-                      : 'text-muted hover:text-text'
-                  }`}
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors hoverable ${activeSection === item.href.slice(1)
+                    ? 'text-primary'
+                    : 'text-muted hover:text-text'
+                    }`}
                   onClick={(e) => {
                     e.preventDefault()
                     scrollToSection(item.href)
@@ -173,11 +179,10 @@ const Navbar = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`text-2xl font-semibold transition-colors ${
-                    activeSection === item.href.slice(1)
-                      ? 'gradient-text'
-                      : 'text-text'
-                  }`}
+                  className={`text-2xl font-semibold transition-colors ${activeSection === item.href.slice(1)
+                    ? 'gradient-text'
+                    : 'text-text'
+                    }`}
                   onClick={(e) => {
                     e.preventDefault()
                     scrollToSection(item.href)

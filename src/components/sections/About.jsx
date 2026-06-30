@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { GraduationCap, Briefcase, Rocket, Users } from 'lucide-react'
 import { personalInfo, stats } from '../../data/portfolioData'
 import SectionHeading from '../ui/SectionHeading'
+import avatar from '../../assets/avatar.png'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -50,7 +51,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-6" />
               <div className="relative glass rounded-3xl p-2 h-full">
                 <img
-                  src={personalInfo.avatar}
+                  src={avatar}
                   alt={personalInfo.name}
                   className="w-full h-full object-cover rounded-2xl"
                 />
@@ -61,7 +62,7 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
                 >
-                  <p className="text-2xl font-bold gradient-text">2.5+</p>
+                  <p className="text-2xl text-muted gradient-text ps-7">2+</p>
                   <p className="text-xs text-muted">Years Experience</p>
                 </motion.div>
               </div>
@@ -115,8 +116,8 @@ const About = () => {
                   transition={{ delay: index * 0.1 }}
                 >
                   <motion.p
-                    className="text-3xl md:text-4xl font-bold gradient-text"
-                    initial={hasAnimated ? { opacity: 1 } : { opacity: 0 }}
+                    className="text-3xl md:text-4xl text-muted gradient-text"
+                    // initial={hasAnimated ? { opacity: 1 } : { opacity: 0 }}
                   >
                     {hasAnimated && <AnimatedCount end={stat.value} suffix={stat.suffix} />}
                   </motion.p>

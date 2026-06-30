@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { Github, Linkedin, Twitter, Dribbble, ArrowDown, Download, ExternalLink } from 'lucide-react'
 import { personalInfo, socialLinks } from '../../data/portfolioData'
 import MagneticButton from '../ui/MagneticButton'
+import avatar from '../../assets/avatar.png'
 
 const Hero = ({ pageLoaded }) => {
   const heroRef = useRef(null)
@@ -15,41 +16,40 @@ const Hero = ({ pageLoaded }) => {
   // }, [])
 
   useLayoutEffect(() => {
-  if (!pageLoaded || !nameRef.current) return
+    if (!pageLoaded || !nameRef.current) return
 
-  const chars = nameRef.current.querySelectorAll('.char')
+    const chars = nameRef.current.querySelectorAll('.char')
     console.log(
-  nameRef.current.querySelectorAll('.char').length
-)
-  gsap.killTweensOf(chars)
+      nameRef.current.querySelectorAll('.char').length
+    )
+    gsap.killTweensOf(chars)
 
-  gsap.set(chars, {
-    opacity: 0,
-    y: 100,
-  })
+    gsap.set(chars, {
+      opacity: 0,
+      y: 100,
+    })
 
-  gsap.to(chars, {
-    opacity: 1,
-    y: 0,
-    stagger: 0.05,
-    duration: 1,
-    ease: 'power4.out',
-    delay: 0.3,
-  })
-}, [pageLoaded])
+    gsap.to(chars, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.05,
+      duration: 1,
+      ease: 'power4.out',
+      delay: 0.3,
+    })
+  }, [pageLoaded])
 
   const splitName = (text, gradient = false) => {
-  return text.split('').map((char, i) => (
-    <span
-      key={i}
-      className={`char inline-block origin-bottom ${
-        gradient ? 'gradient-text' : ''
-      }`}
-    >
-      {char}
-    </span>
-  ))
-}
+    return text.split('').map((char, i) => (
+      <span
+        key={i}
+        className={`char inline-block origin-bottom ${gradient ? 'gradient-text' : ''
+          }`}
+      >
+        {char}
+      </span>
+    ))
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -139,16 +139,16 @@ const Hero = ({ pageLoaded }) => {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <img
-                src={personalInfo.avatar}
+                src={avatar}
                 alt={personalInfo.name}
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-primary/50 relative z-10"
+                className="w-50 h-50 md:w-40 md:h-40 rounded-full object-cover border-2 border-primary/50 relative z-10"
               />
-              <motion.div
+              {/* <motion.div
                 className="absolute -bottom-1 -right-1 w-8 h-8 bg-green-500 rounded-full border-4 border-background z-20"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 1.5, type: 'spring' }}
-              />
+              /> */}
             </div>
           </motion.div>
 
@@ -159,19 +159,19 @@ const Hero = ({ pageLoaded }) => {
           </motion.div>
 
           <h1
-  ref={nameRef}
-  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-poppins mb-6"
->
-  {splitName(personalInfo.firstName)}
-  {' '}
-  {splitName(personalInfo.lastName, true)}
-</h1>
+            ref={nameRef}
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-poppins mb-6"
+          >
+            {splitName(personalInfo.firstName)}
+            {' '}
+            {splitName(personalInfo.lastName, true)}
+          </h1>
 
           <motion.div
             variants={itemVariants}
             className="text-xl md:text-2xl text-muted mb-8 h-8"
           >
-            <TypewriterText texts={['Frontend Developer', 'React.js Expert', 'Next.js Specialist', 'JavaScript Enthusiast']} />
+            <TypewriterText texts={['Frontend Developer', 'React.js Expert', 'JavaScript Enthusiast']} />
           </motion.div>
 
           <motion.p
@@ -200,7 +200,7 @@ const Hero = ({ pageLoaded }) => {
             </MagneticButton>
             <MagneticButton>
               <motion.a
-                href={personalInfo.resumeUrl}
+                href={personalInfo.resumeUrl} target="_blank" download="Pranav_Bane_MERN_Stack_Dev.pdf" rel="noopener noreferrer"
                 className="group flex items-center gap-2 px-8 py-4 rounded-full glass border border-primary/30 text-text font-medium hoverable"
                 whileHover={{
                   borderColor: 'rgba(255, 107, 53, 0.6)',
