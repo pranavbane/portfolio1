@@ -80,7 +80,7 @@ export const projects = [
     id: 3,
     title: 'College Management System',
     description: 'A College Management System (CMS) is an administrative software suite that centralizes and automates institutional workflows.',
-    image: 'https://images.pexels.com/photos/2305445/pexels-photo-2305445.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://repository-images.githubusercontent.com/356916985/cebcbf05-cf6a-4e55-9f28-a08d3c061919',
     category: 'frontend',
     liveUrl: 'https://frontend-c6qnvcj1q-pranavbanes-projects.vercel.app/login',
     githubUrl: 'https://github.com/pranavbane/Lecture_Scheduling_Module',
