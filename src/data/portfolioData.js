@@ -76,6 +76,17 @@ export const projects = [
     technologies: ['React', 'Redux', 'JavaScript', 'Bootstrap', 'HTML', 'CSS'],
     featured: true,
   },
+   {
+    id: 3,
+    title: 'College Management System',
+    description: 'A College Management System (CMS) is an administrative software suite that centralizes and automates institutional workflows.',
+    image: 'https://images.pexels.com/photos/2305445/pexels-photo-2305445.jpeg?auto=compress&cs=tinysrgb&w=800',
+    category: 'frontend',
+    liveUrl: 'https://frontend-c6qnvcj1q-pranavbanes-projects.vercel.app/login',
+    githubUrl: 'https://github.com/pranavbane/Lecture_Scheduling_Module',
+    technologies: ['React.js', 'Node.js', 'tailwind CSS', 'express.js', 'Redux', 'JavaScript', 'MongoDB', 'Bootstrap', 'HTML', 'CSS'],
+    featured: true,
+  },
 ]
 
 export const services = [
