@@ -175,9 +175,9 @@ export const techStack = [
 
 export const socialLinks = [
   { name: 'GitHub', url: 'https://github.com/pranavbane', icon: 'github' },
-  { name: 'LinkedIn', url: '#', icon: 'linkedin' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/pranav-bane-a3929b27b/', icon: 'linkedin' },
   { name: 'Twitter', url: '#', icon: 'twitter' },
-  { name: 'Dribbble', url: '#', icon: 'dribbble' },
+  { name: 'Email', url: 'mailto:pranavbane777@gmail.com', icon: 'email' },
 ]
 
 export const navigation = [

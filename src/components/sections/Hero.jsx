@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useLayoutEffect } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
-import { Github, Linkedin, Twitter, Dribbble, ArrowDown, Download, ExternalLink } from 'lucide-react'
+import { Github, Linkedin, Twitter, Dribbble, ArrowDown, Download, ExternalLink, Mail } from 'lucide-react'
 import { personalInfo, socialLinks } from '../../data/portfolioData'
 import MagneticButton from '../ui/MagneticButton'
 import avatar from '../../assets/avatar.png'
@@ -233,7 +233,7 @@ const Hero = ({ pageLoaded }) => {
                 {social.icon === 'github' && <Github size={20} />}
                 {social.icon === 'linkedin' && <Linkedin size={20} />}
                 {social.icon === 'twitter' && <Twitter size={20} />}
-                {social.icon === 'dribbble' && <Dribbble size={20} />}
+                {social.icon === 'email' && <Dribbble size={20} />}
               </motion.a>
             ))}
           </motion.div>

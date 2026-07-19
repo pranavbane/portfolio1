@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Heart, ArrowUp, Github, Linkedin, Twitter, Dribbble } from 'lucide-react'
+import { Heart, ArrowUp, Github, Linkedin, Twitter, Dribbble, Mail } from 'lucide-react'
 import { personalInfo, navigation, socialLinks } from '../../data/portfolioData'
 
 const Footer = () => {
@@ -11,7 +11,8 @@ const Footer = () => {
     github: Github,
     linkedin: Linkedin,
     twitter: Twitter,
-    dribbble: Dribbble,
+    // dribbble: Dribbble,
+    email: Mail
   }
 
   return (

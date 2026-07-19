@@ -53,6 +53,7 @@ const Contact = () => {
     linkedin: Linkedin,
     twitter: Twitter,
     dribbble: Dribbble,
+    email: Mail
   }
 
   return (
