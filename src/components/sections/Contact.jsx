@@ -1,63 +1,86 @@
-import { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
-import { Send, Mail, Phone, MapPin, CircleCheck as CheckCircle, Loader as Loader2 } from 'lucide-react'
-import { personalInfo, socialLinks } from '../../data/portfolioData'
-import SectionHeading from '../ui/SectionHeading'
-import MagneticButton from '../ui/MagneticButton'
-import { Github, Linkedin, Twitter, Dribbble } from 'lucide-react'
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import {
+  Send,
+  Mail,
+  Phone,
+  MapPin,
+  CircleCheck as CheckCircle,
+  Loader as Loader2,
+} from "lucide-react";
+import { personalInfo, socialLinks } from "../../data/portfolioData";
+import SectionHeading from "../ui/SectionHeading";
+import MagneticButton from "../ui/MagneticButton";
+import { Github, Linkedin, Twitter, Dribbble } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  const formRef = useRef(null)
+  const formRef = useRef(null);
   const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [errors, setErrors] = useState({})
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const validateForm = () => {
-    const newErrors = {}
-    if (!formState.name.trim()) newErrors.name = 'Name is required'
-    if (!formState.email.trim()) newErrors.email = 'Email is required'
+    const newErrors = {};
+    if (!formState.name.trim()) newErrors.name = "Name is required";
+    if (!formState.email.trim()) newErrors.email = "Email is required";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email))
-      newErrors.email = 'Invalid email format'
-    if (!formState.message.trim()) newErrors.message = 'Message is required'
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+      newErrors.email = "Invalid email format";
+    if (!formState.message.trim()) newErrors.message = "Message is required";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!validateForm()) return
+    e.preventDefault();
+    if (!validateForm()) return;
 
-    setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormState({ name: '', email: '', subject: '', message: '' })
+    setIsSubmitting(true);
 
-    setTimeout(() => setIsSubmitted(false), 5000)
-  }
+    // await new Promise((resolve) => setTimeout(resolve, 2000))
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formState.name,
+        from_email: formState.email,
+        subject: formState.subject,
+        message: formState.message,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    );
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+    setFormState({ name: "", email: "", subject: "", message: "" });
+
+    setTimeout(() => setIsSubmitted(false), 5000);
+  };
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormState((prev) => ({ ...prev, [name]: value }))
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }))
-  }
+    const { name, value } = e.target;
+    setFormState((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
 
   const socialIcons = {
     github: Github,
     linkedin: Linkedin,
     twitter: Twitter,
     dribbble: Dribbble,
-    email: Mail
-  }
+    email: Mail,
+  };
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden bg-gradient-to-b from-background via-surface/20 to-background">
+    <section
+      id="contact"
+      className="section-padding relative overflow-hidden bg-gradient-to-b from-background via-surface/20 to-background"
+    >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
@@ -77,7 +100,9 @@ const Contact = () => {
               Let's work <span className="gradient-text">together</span>
             </h3>
             <p className="text-muted mb-8 leading-relaxed">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the channels below.
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your vision. Feel free to reach out
+              through any of the channels below.
             </p>
 
             <div className="space-y-6">
@@ -113,22 +138,22 @@ const Contact = () => {
                 </div>
               </motion.a>
 
-              <motion.div
-                className="flex items-center gap-4 p-4 rounded-xl glass border border-white/10"
-              >
+              <motion.div className="flex items-center gap-4 p-4 rounded-xl glass border border-white/10">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <MapPin className="text-background" size={22} />
                 </div>
                 <div>
                   <p className="text-sm text-muted">Location</p>
-                  <p className="text-text font-medium">{personalInfo.location}</p>
+                  <p className="text-text font-medium">
+                    {personalInfo.location}
+                  </p>
                 </div>
               </motion.div>
             </div>
 
             <div className="mt-8 flex gap-4">
               {socialLinks.map((social) => {
-                const Icon = socialIcons[social.icon]
+                const Icon = socialIcons[social.icon];
                 return (
                   <motion.a
                     key={social.name}
@@ -141,7 +166,7 @@ const Contact = () => {
                   >
                     {Icon && <Icon size={20} />}
                   </motion.a>
-                )
+                );
               })}
             </div>
           </motion.div>
@@ -163,14 +188,18 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="Your Name"
                       className={`w-full px-4 py-4 rounded-xl glass border ${
-                        errors.name ? 'border-red-500' : 'border-white/10 focus:border-primary/50'
+                        errors.name
+                          ? "border-red-500"
+                          : "border-white/10 focus:border-primary/50"
                       } bg-transparent text-text placeholder-muted/50 outline-none transition-all duration-300 peer`}
                     />
                     <label className="absolute -top-2.5 left-3 px-2 text-xs text-muted bg-background peer-focus:text-primary transition-colors">
                       Your Name
                     </label>
                   </div>
-                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                  {errors.name && (
+                    <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                  )}
                 </div>
 
                 <div>
@@ -182,14 +211,18 @@ const Contact = () => {
                       onChange={handleChange}
                       placeholder="Your Email"
                       className={`w-full px-4 py-4 rounded-xl glass border ${
-                        errors.email ? 'border-red-500' : 'border-white/10 focus:border-primary/50'
+                        errors.email
+                          ? "border-red-500"
+                          : "border-white/10 focus:border-primary/50"
                       } bg-transparent text-text placeholder-muted/50 outline-none transition-all duration-300 peer`}
                     />
                     <label className="absolute -top-2.5 left-3 px-2 text-xs text-muted bg-background peer-focus:text-primary transition-colors">
                       Your Email
                     </label>
                   </div>
-                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                  )}
                 </div>
               </div>
 
@@ -218,14 +251,18 @@ const Contact = () => {
                     placeholder="Your Message"
                     rows={5}
                     className={`w-full px-4 py-4 rounded-xl glass border ${
-                      errors.message ? 'border-red-500' : 'border-white/10 focus:border-primary/50'
+                      errors.message
+                        ? "border-red-500"
+                        : "border-white/10 focus:border-primary/50"
                     } bg-transparent text-text placeholder-muted/50 outline-none transition-all duration-300 resize-none peer`}
                   />
                   <label className="absolute -top-2.5 left-3 px-2 text-xs text-muted bg-background peer-focus:text-primary transition-colors">
                     Your Message
                   </label>
                 </div>
-                {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+                {errors.message && (
+                  <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+                )}
               </div>
 
               <MagneticButton>
@@ -234,11 +271,15 @@ const Contact = () => {
                   disabled={isSubmitting || isSubmitted}
                   className={`w-full py-4 rounded-xl font-medium flex items-center justify-center gap-2 transition-all duration-300 ${
                     isSubmitted
-                      ? 'bg-green-500 text-background'
-                      : 'bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow'
+                      ? "bg-green-500 text-background"
+                      : "bg-gradient-to-r from-primary to-secondary text-background hover:shadow-glow"
                   } disabled:opacity-70`}
-                  whileHover={!isSubmitting && !isSubmitted ? { scale: 1.02 } : {}}
-                  whileTap={!isSubmitting && !isSubmitted ? { scale: 0.98 } : {}}
+                  whileHover={
+                    !isSubmitting && !isSubmitted ? { scale: 1.02 } : {}
+                  }
+                  whileTap={
+                    !isSubmitting && !isSubmitted ? { scale: 0.98 } : {}
+                  }
                 >
                   {isSubmitting ? (
                     <>
@@ -263,7 +304,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
