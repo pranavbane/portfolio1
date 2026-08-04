@@ -219,7 +219,7 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
           </div>
 
-          <p className="text-muted text-lg leading-relaxed mb-8">
+          <p className="text-muted text-lg leading-relaxed mb-8 whitespace-pre-line">
             {project.description}
           </p>
 

@@ -79,7 +79,17 @@ export const projects = [
    {
     id: 3,
     title: 'College Management System',
-    description: 'A College Management System (CMS) is an administrative software suite that centralizes and automates institutional workflows.',
+    description: `A College Management System (CMS) is an administrative software suite that centralizes and automates institutional workflows.
+                  
+                  Admin 
+                  Email: admin@college.edu
+                  Password: admin123
+                  
+                  Instructor 
+                  Email: pranav@college.edu.in
+                  Password: pranav123 
+                  
+                  You can also create a Instructor using admin`,
     image: 'https://repository-images.githubusercontent.com/356916985/cebcbf05-cf6a-4e55-9f28-a08d3c061919',
     category: 'fullstack',
     liveUrl: 'https://frontend-c6qnvcj1q-pranavbanes-projects.vercel.app/login',
